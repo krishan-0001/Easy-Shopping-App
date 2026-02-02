@@ -14,6 +14,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.easyshopping.components.BannerView
+import com.example.easyshopping.components.CategoriesView
 import com.example.easyshopping.components.HeaderView
 
 @Composable
@@ -30,5 +31,7 @@ fun HomePage(modifier: Modifier){
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold
             ))
+        Spacer(modifier = Modifier.height(10.dp))
+        CategoriesView(modifier)
     }
 }
