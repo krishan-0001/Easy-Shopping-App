@@ -41,7 +41,8 @@ fun CategoryProductPage(modifier: Modifier = Modifier, categoryId: String?){
     }
     LazyColumn(modifier = modifier
         .fillMaxSize()
-        .padding(16.dp)) {
+        .padding(16.dp)
+    ) {
         items(productList.value.chunked(2)){rowItems->
             Row(){
                 rowItems.forEach {
