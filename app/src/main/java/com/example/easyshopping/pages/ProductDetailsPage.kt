@@ -15,6 +15,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.Button
@@ -52,6 +53,9 @@ fun ProductDetailsPage(modifier: Modifier = Modifier, productId: String){
         mutableStateOf(ProductModel())
     }
     var context = LocalContext.current
+    var isFav = remember {
+        mutableStateOf(AppUtil.checkFavourite(context,productId))
+    }
     LaunchedEffect(Unit) {
         Firebase.firestore.collection("data").document("stocks")
             .collection("products")
@@ -117,9 +121,17 @@ fun ProductDetailsPage(modifier: Modifier = Modifier, productId: String){
                 fontWeight = FontWeight.Bold
             )
 
-            IconButton(onClick = {}) {
+            IconButton(onClick = {
+                AppUtil.addOrRemove(context,productId)
+                isFav.value = AppUtil.checkFavourite(context, productId)
+            }) {
                 Icon(
-                    imageVector = Icons.Default.FavoriteBorder,
+                    imageVector = if(isFav.value){
+                        Icons.Default.Favorite
+                    }
+                    else{
+                        Icons.Default.FavoriteBorder
+                    },
                     contentDescription = "Add to favourite"
                 )
             }

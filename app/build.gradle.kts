@@ -64,4 +64,5 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation ("io.coil-kt:coil-compose:2.7.0")
     implementation("com.tbuonomo:dotsindicator:5.1.0")
+    implementation("com.razorpay:checkout:1.6.41")
 }

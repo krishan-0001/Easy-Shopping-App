@@ -61,7 +61,7 @@ fun CartItemView(modifier: Modifier=Modifier,productId: String,qty : Long){
 
             }
     }
-    var context = LocalContext.current
+    val context = LocalContext.current
     Card(
         modifier = modifier
             .padding(8.dp)
