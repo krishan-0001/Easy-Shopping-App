@@ -108,15 +108,18 @@ fun ProductDetailsPage(modifier: Modifier = Modifier, productId: String){
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(8.dp)
+                .padding(8.dp),
+            verticalAlignment = Alignment.CenterVertically
         ){
-            Text(text = "$"+ product.price,
+            Text(text = AppUtil.formatToINR(product.price.toDoubleOrNull() ?: 0.0
+            ),
                 fontSize = 16.sp,
                 style = TextStyle(textDecoration = TextDecoration.LineThrough)
             )
             Spacer(modifier = Modifier.width(8.dp))
             Text(
-                text = "$" + product.actualPrice,
+                text = AppUtil.formatToINR(product.actualPrice.toDoubleOrNull() ?: 0.0
+                ),
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold
             )

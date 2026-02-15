@@ -93,7 +93,7 @@ fun CartItemView(modifier: Modifier=Modifier,productId: String,qty : Long){
                     overflow = TextOverflow.Ellipsis,
                 )
                 Text(
-                    text = "$" + product.actualPrice,
+                    text = AppUtil.formatToINR(product.actualPrice.toDoubleOrNull() ?:0.0),
                     fontSize = 16.sp,
                     fontWeight = FontWeight.SemiBold
                 )

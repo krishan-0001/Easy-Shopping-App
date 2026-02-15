@@ -14,6 +14,7 @@ import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.firestore
 import com.razorpay.Checkout
 import org.json.JSONObject
+import java.text.NumberFormat
 import java.util.Locale
 import java.util.UUID
 
@@ -105,7 +106,7 @@ object AppUtil {
         return "rzp_test_SEOlemjn7Qg9Sf"
     }
 
-    fun startPayment(amount : Float){
+    fun startPayment(amount : Double){
         val checkout = Checkout()
         checkout.setKeyID(razorpayApiKey())
         val options = JSONObject()
@@ -146,6 +147,11 @@ object AppUtil {
     fun getFavouriteList(context: Context) : Set<String>{
         val prefs = context.getSharedPreferences(PREF_NAME,Context.MODE_PRIVATE)
         return prefs.getStringSet(KEY_FAVOURITES,emptySet()) ?: emptySet()
+    }
+    fun formatToINR(amount: Double): String {
+        val format = NumberFormat.getCurrencyInstance(Locale("en", "IN"))
+        format.maximumFractionDigits = 0
+        return format.format(amount)
     }
 
 }

@@ -44,16 +44,16 @@ fun CheckoutPage(modifier: Modifier = Modifier){
         mutableListOf(ProductModel())
     }
     val subTotal = remember {
-        mutableStateOf(0f)
+        mutableStateOf(0.0)
     }
     val discount = remember {
-        mutableStateOf(0f)
+        mutableStateOf(0.0)
     }
     val tax = remember {
-        mutableStateOf(0f)
+        mutableStateOf(0.0)
     }
     val total = remember {
-        mutableStateOf(0f)
+        mutableStateOf(0.0)
     }
     fun calculateAndAssign(){
         productList.forEach {
@@ -62,9 +62,9 @@ fun CheckoutPage(modifier: Modifier = Modifier){
                 subTotal.value += it.actualPrice.toFloat()*qty
             }
         }
-        discount.value = subTotal.value * (AppUtil.getDiscountPercentage())/100
-        tax.value = subTotal.value * (AppUtil.getTaxPercentage())/100
-        total.value = "%.2f".format(subTotal.value - discount.value + tax.value).toFloat()
+        discount.value = subTotal.value * (AppUtil.getDiscountPercentage())/100.0
+        tax.value = subTotal.value * (AppUtil.getTaxPercentage())/100.0
+        total.value = "%.2f".format(subTotal.value - discount.value + tax.value).toDouble()
     }
     LaunchedEffect(Unit) {
         Firebase.firestore.collection("users")
@@ -115,7 +115,7 @@ fun CheckoutPage(modifier: Modifier = Modifier){
             textAlign = TextAlign.Center
         )
         Text(modifier= Modifier.fillMaxWidth(),
-            text = "$"+total.value.toString(),
+            text = AppUtil.formatToINR(total.value),
             fontSize = 30.sp,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center
@@ -140,6 +140,6 @@ fun RowCheckoutItems(title : String,value : String){
     Row(modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween){
         Text(text=title, fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
-        Text(text = "$"+value, fontSize = 18.sp)
+        Text(text = AppUtil.formatToINR(value.toDoubleOrNull() ?: 0.0), fontSize = 18.sp)
     }
 }

@@ -67,17 +67,27 @@ fun ProductItemView(modifier: Modifier = Modifier,product: ProductModel){
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(8.dp),
+                verticalAlignment = Alignment.CenterVertically
             ){
-                Text(text = "$"+ product.price,
-                    fontSize = 14.sp,
-                    style = TextStyle(textDecoration = TextDecoration.LineThrough)
-                )
-                Spacer(modifier = Modifier.width(8.dp))
-                Text(
-                    text = "$" + product.actualPrice,
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.SemiBold
-                )
+
+//                    Text(text = AppUtil.formatToINR(product.price.toDouble()),
+//                        fontSize = 14.sp,
+//                        maxLines = 1,
+//                        overflow = TextOverflow.Ellipsis,
+//                        style = TextStyle(textDecoration = TextDecoration.LineThrough),
+//                        modifier = Modifier.weight(1f)
+//                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        text = AppUtil.formatToINR(product.actualPrice.toDoubleOrNull() ?: 0.0
+                        ),
+                        fontSize = 16.sp,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        fontWeight = FontWeight.SemiBold,
+
+                    )
+
 
                 IconButton(onClick = {
                     AppUtil.addItemToCart(product.id, context )
