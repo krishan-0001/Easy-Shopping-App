@@ -17,7 +17,7 @@ An Android E-Commerce application built using Kotlin and Jetpack Compose that al
 
 * Language: Kotlin
 * UI Toolkit: Jetpack Compose (Material 3)
-* Architecture: MVVM 
+* Architecture: MVVM
 * Database: Firebase Firestore
 * Authentication: Firebase Auth
 * Payment Gateway: Razorpay Android SDK
@@ -25,14 +25,14 @@ An Android E-Commerce application built using Kotlin and Jetpack Compose that al
 * State Management: ViewModel + Compose State
 
 📂 Project Structure
-  com.example.easyshopping
-  │
-  ├── ui/                → UI Components
-  ├── pages/             → App Screens (Home, Cart, Wishlist)
-  ├── viewmodel/         → Business Logic
-  ├── data/              → Repository & Firebase
-  ├── navigation/        → Navigation Graph
-  └── theme/             → App Theme
+com.example.easyshopping
+│
+├── ui/                → UI Components
+├── pages/             → App Screens (Home, Cart, Wishlist)
+├── viewmodel/         → Business Logic
+├── data/              → Repository & Firebase
+├── navigation/        → Navigation Graph
+└── theme/             → App Theme
 
 ⚙️ Installation & Setup
 1️⃣ Clone Repository
@@ -73,9 +73,9 @@ Target SDK: 34
 |----------------------------------|--------------------------------|
 | ![](screenshots/signup_page.png) | ![](screenshots/home_page.png) |
 
-| Cart                           | Favourite                           |
-|--------------------------------|-------------------------------------|
-| ![](screenshots/cart_page.png) | ![](screenshots/favourite_page.png) |
+| Cart                           | Favourite                            |
+|--------------------------------|--------------------------------------|
+| ![](screenshots/cart_page.png) | ![](screenshots/favourites_page.png) |
 
 | Profile                           | Payment                           |
 |-----------------------------------|-----------------------------------|
