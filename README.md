@@ -81,3 +81,8 @@ Target SDK: 34
 |-----------------------------------|-----------------------------------|
 | ![](screenshots/profile_page.png) | ![](screenshots/payment_page.png) |
 
+## 👨‍💻 Author
+Krishan Sharma  
+Android Developer  
+
+
